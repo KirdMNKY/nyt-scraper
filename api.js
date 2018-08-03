@@ -7,6 +7,7 @@ $(document).ready(function(){
     var startYear =  $("#start-year");
     var endYear = $("#end-year");
     var showArticles = $(".articles");
+    var articleCounter = 0;
     
     var begin;
     begin = "0101";
@@ -19,17 +20,16 @@ $(document).ready(function(){
         var numRecordsData = numRecords.val();
         var startYearData = startYear.val()+begin;
         var endYearData = endYear.val()+end;
-
         getArticles(searchData, startYearData, endYearData, numRecordsData);
     });
-    var numArticles = prompt("how many articles do you want?");
+ 
 
     function createArticles(result, numWanted){
-        var ourDiv = $("<div>");
         for(var i = 0; i < numWanted; i ++){
+            articleCounter++;
             var articleDiv = $("<div>");
             var articleTitle = $("<h4>");
-            articleTitle.text(result.response.docs[i].headline.main);
+            articleTitle.text(articleCounter + " "+ result.response.docs[i].headline.main);
             var author = $("<p>");
             author.text(result.response.docs[i].byline.original);
             var pubDate = $("<p>");
@@ -44,7 +44,7 @@ $(document).ready(function(){
         }
     }
 
-    function getArticles(searchKeyword, begin_date, end_date, num_articles,){
+    function getArticles(searchKeyword, begin_date, end_date, num_articles){
         var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
         var numWanted;
         var remainder;
@@ -55,7 +55,9 @@ $(document).ready(function(){
         else{
             numWanted = num_articles;
         }
-
+        console.log(num_articles);
+        console.log(remainder);
+        
         url += '?' + $.param({
             'api-key': "381fc0b99273425eaf1ebec4cb39ec8c",
             'q': searchKeyword,
@@ -102,6 +104,7 @@ $(document).ready(function(){
         searchTerm.val("");
         startYear.val("");
         endYear.val("");
+        articleCounter = 0;
         $(".articles").empty("");
     
     }
