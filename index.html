@@ -11,10 +11,77 @@
   crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="index.js"></script>
 </head>
 <body>
+<header>
+    New York Times Article Search
+</header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- input forms -->
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-newspaper"></i> Search Parameters
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Enter the following search criteria.</h5>
+                        <p class="card-text"></p>
+
+                        <!-- Inputs -->
+                        <form>
+                            <div class="form-group">
+                                <label for="search-term">Search Term</label>
+                                <input class="form-control" id="search-term" type="text" placeholder="Default input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="num-records">Number of Search Results</label>
+                                <select class="form-control" id="num-records">
+                                    <option>5</option>
+                                    <option>10</option>
+                                    <option>15</option>
+                                    <option>20</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="start-year">Start Year</label>
+                                <input class="form-control" id="start-year" type="number" placeholder="Enter the Start Year">
+                            </div>
+                            <div class="form-group">
+                                <label for="end-year">End Year</label>
+                                <input class="form-control" id="end-year" type="number" placeholder="Enter the End Year">
+                            </div>
+                            </form>
+
+                        <a href="#" class="btn btn-primary btn-search"><i class="fas fa-search"></i> Search</a>
+                        <a href="#" class="btn btn-primary btn-clear">
+                        <i class="fas fa-eraser"></i> Clear</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- divs for articles -->
+                <div class="card">
+                    <div class="card-header">
+                            <i class="fas fa-book-reader"></i> Search Results
+                    </div>
+                    <div class="card-body articles">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text"></p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
