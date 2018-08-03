@@ -28,7 +28,7 @@ function createArticles(result, numWanted){
     }
 }
 
-function getArticles(searchKeyword, begin_date, end_date, num_articles, page_num){
+function getArticles(searchKeyword, begin_date, end_date, num_articles,){
     var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
     var numWanted;
     var remainder;
@@ -45,7 +45,7 @@ function getArticles(searchKeyword, begin_date, end_date, num_articles, page_num
         'q': searchKeyword,
         'begin_date': begin_date,
         'end_date': end_date,
-        'page': page_num,
+        'page': 0,
     });
     $.ajax({
         url: url,
@@ -62,7 +62,7 @@ function getArticles(searchKeyword, begin_date, end_date, num_articles, page_num
             'q': searchKeyword,
             'begin_date': begin_date,
             'end_date': end_date,
-            'page': page_num + 1,
+            'page': 1,
         });
         $.ajax({
             url: url,
@@ -75,4 +75,4 @@ function getArticles(searchKeyword, begin_date, end_date, num_articles, page_num
 }
 
 
-getArticles(keyword, begin, end, numArticles, 0);
+getArticles(keyword, begin, end, numArticles);
